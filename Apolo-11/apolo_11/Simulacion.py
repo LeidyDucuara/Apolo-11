@@ -1,4 +1,5 @@
 import logging
+logging.basicConfig(level=logging.DEBUG)
 # ejemplos de registro de mensajes
 #logging.debug('este es un mensaje de debug')         # 10 logging.INFO
 #logging.info('esto es un mensaje de información')    # 20
