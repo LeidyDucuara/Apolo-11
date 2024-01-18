@@ -1,5 +1,5 @@
 import argparse
-from Simulacion import Simulacion_rum
+from Simulacion import Simulacion_run
 import logging
 
 # Configurar el nivel de registro
@@ -8,27 +8,34 @@ logging.basicConfig(level=logging.INFO)
 class App:
 
     def main():
+
         # Configurar y obtener parámetros
         parser = argparse.ArgumentParser()
         parser.add_argument("-t", "--time", type=int, help="Configurar el intervalo de ejecución (segundos)")
+        parser.add_argument("-c", "--cant", type=int, help="Configurar la cantidad de archivos generados")
         args = parser.parse_args()
 
         if args.time:
             logging.info("time on")
+        
+        if args.cant:
+            logging.info("cant on")
 
         # Distribuir y ejecutar el proceso seleccionado
-        app = Simulacion_rum()
-        app.run(args.time)
+        app = Simulacion_run()
+        app.run(args.time, args.cant)
 
     if __name__ == "__main__":
         try:
+            main()
             # Mnu opcion
             while True:
                 opciones_menu = input('''Presione:
-                                    1. Correr programa por defecto
-                                    2. Modificar
-                                    3. Agregar dispositivo
-                                    4. Cortar ejecución
+                                    1. Iniciar Simulacion
+                                    2. Agregar dispositivo
+                                    3. Eliminar dispositivo
+                                    4. Cortar
+                                    
                         ''')
 
                 try:

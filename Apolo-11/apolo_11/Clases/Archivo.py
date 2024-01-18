@@ -2,10 +2,10 @@ import os
 import random
 from dispositivo import Dispositivo
 
-class Archivo(Dispositivo):
+class Archivo():
  
-    @classmethod
-    def generar_nombre_aleatorio(cls):
+    @staticmethod
+    def generar_nombre_aleatorio(Nombre_mision):
         Lista_misiones = ["-ORBONE", "-CLNM", "-GALAXONE", "-UKN"]
         nombre_archivo = "APL"
         mision_elegida = random.choice(Lista_misiones)

@@ -19,5 +19,3 @@ class Mision:
             n=n+1
             print(f"{n}-{dispositivo}")
 
-
-    
