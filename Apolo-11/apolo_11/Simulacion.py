@@ -1,6 +1,6 @@
 import logging
 import random
-from Clases.dispositivo import Dispositivo
+
 
 # ejemplos de registro de mensajes
 #logging.debug('este es un mensaje de debug')         # 10 logging.INFO
@@ -11,28 +11,26 @@ from Clases.dispositivo import Dispositivo
 
 class Simulacion_run():
     intervalo: int = 20
-    tipos_dispositivos : list = ['nave', 'traje', 'satelite']
-
-    def run(self,time_seg:int, cant: int):
+    
+    def run(self,time_seg:int, valor_range: str):
 
         logging.info(time_seg)   
-        logging.info(cant)    
-        archivos: int = cant
-        dispositivos = []
+        logging.info(valor_range)    
+        #Cantidad_archivos: int = cant
+        
 
         if time_seg != None:
             self.intervalo = time_seg
         logging.info(self.intervalo)
-        if cant == None:
-            archivos: int = random.randint(0,100)
-        logging.info(archivos)  
-        print('hola')
-        for i in range (archivos): 
-            tipo = random.choice(self.tipos_dispositivos)
-            dispo = Dispositivo(tipo)
-            dispositivos.append(dispo)
+        #if cant == None:
+        #    Cantidad_archivos: int = random.randint(1,100)
+        #logging.info(Cantidad_archivos)  
+        #print(Cantidad_archivos)
 
-            print(dispositivos)
+
+        
+        
+        
             
             
 

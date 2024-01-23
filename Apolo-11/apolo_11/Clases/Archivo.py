@@ -1,23 +1,43 @@
 import os
 import random
-from dispositivo import Dispositivo
+from mision import Mision
 
 class Archivo():
  
     @staticmethod
-    def generar_nombre_aleatorio(Nombre_mision):
+    def nombre_archivo(nombre_mision):
         Lista_misiones = ["-ORBONE", "-CLNM", "-GALAXONE", "-UKN"]
         nombre_archivo = "APL"
-        mision_elegida = random.choice(Lista_misiones)
-        nombre_archivo += mision_elegida
-        nombre_archivo += "-" +"0000"+ str(random.randint(1, 1000)) + ".log"
-        return nombre_archivo
+
+        if nombre_mision == "OrbitOne":
+            mision_elegida = Lista_misiones[0]
+            nombre_archivo += mision_elegida
+            nombre_archivo += "-" +"0000"+ str(random.randint(1, 1000)) + ".log"
+            return nombre_archivo
+        elif nombre_mision == "ColonyMoon":
+            mision_elegida = Lista_misiones[1]
+            nombre_archivo += mision_elegida
+            nombre_archivo += "-" +"0000"+ str(random.randint(1, 1000)) + ".log"
+            return nombre_archivo
+        elif nombre_mision == "VacMars":
+            mision_elegida = Lista_misiones[2]
+            nombre_archivo += mision_elegida
+            nombre_archivo += "-" +"0000"+ str(random.randint(1, 1000)) + ".log"
+            return nombre_archivo
+        elif nombre_mision == "GalaxyTwo":
+            mision_elegida = Lista_misiones[3]
+            nombre_archivo += mision_elegida
+            nombre_archivo += "-" +"0000"+ str(random.randint(1, 1000)) + ".log"
+            return nombre_archivo
+        else:
+            return "Error"
+    
     @staticmethod
     def crear_archivo(nombrearchivo):
         ruta_archivo = f'Apolo-11\\Apolo-11\\Devices\\{nombrearchivo}'
 
         while os.path.exists(ruta_archivo):
-            nombrearchivo = Archivo.generar_nombre_aleatorio()
+            nombrearchivo = Archivo.nombre_archivo()
             ruta_archivo = f'Apolo-11\\Apolo-11\\Devices\\{nombrearchivo}'
 
         with open(ruta_archivo, 'w') as archivo:
@@ -32,9 +52,3 @@ class Archivo():
             archivo.write(texto)
             print("se escribio: ",texto)
 
-# a=Archivo.generar_nombre_aleatorio()
-# b=Archivo.crear_archivo(a)
-# texto=Dispositivo.elegir_estado_random()
-# C=Archivo.Escribir_Archivo(b,texto)
-
- 
