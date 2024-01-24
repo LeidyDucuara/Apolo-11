@@ -38,11 +38,13 @@ class Archivo():
     
     @staticmethod
     def crear_archivo(nombrearchivo):
-        ruta_archivo = f'Apolo-11\\Apolo-11\\Devices\\{nombrearchivo}'
+        ruta_archivo = f'Apolo-11\\Devices\\{nombrearchivo}'
 
         while os.path.exists(ruta_archivo):
             nombrearchivo = Archivo.nombre_archivo()
-            ruta_archivo = f'Apolo-11\\Apolo-11\\Devices\\{nombrearchivo}'
+            ruta_archivo = f'Apolo-11\\Devices\\{nombrearchivo}'
+
+        
 
         with open(ruta_archivo, 'w') as archivo:
             pass

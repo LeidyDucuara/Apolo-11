@@ -2,7 +2,7 @@
 import logging
 import time
 import random
-import keyboard as kb
+#from keyboard
 from Clases.mision import Mision
 from Clases.archivo import Archivo
 from Clases.dispositivo import Dispositivo, Tipo
@@ -32,7 +32,7 @@ class Simulacion_run():
         logging.info(f"El rango menor es: {rango_menor}")
         logging.info(f"El rango Mayor es: {rango_mayor}")
         for _ in range(random.randint(rango_menor, rango_mayor)):
-            time.sleep(self.intervalo)
+            #time.sleep(self.intervalo)
             def llenado_archivo(nombre_mision):
                 tipo = Tipo.elegir_dispositivo()
                 dispositivo_creado = Dispositivo(tipo)
@@ -64,10 +64,6 @@ class Simulacion_run():
             texto = llenado_archivo(nombre_mision)
             crear_y_llenar_archivo(texto)
 
-            if kb.is_pressed("q"):
-                print("q") 
-                break
-        
     
 
  
