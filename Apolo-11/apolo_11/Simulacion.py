@@ -1,8 +1,9 @@
+# pylint: skip-file
 import logging
 import time
 import random
+import keyboard as kb
 from Clases.mision import Mision
-from funciones import llenado_archivo, crear_y_llenar_archivo
 from Clases.archivo import Archivo
 from Clases.dispositivo import Dispositivo, Tipo
 from Clases.mision import Mision
@@ -62,9 +63,10 @@ class Simulacion_run():
             nombre_mision = Mision.generar_nombre_aleatorio()  
             texto = llenado_archivo(nombre_mision)
             crear_y_llenar_archivo(texto)
-            
 
-
+            if kb.is_pressed("q"):
+                print("q") 
+                break
         
     
 
