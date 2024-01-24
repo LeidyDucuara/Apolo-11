@@ -1,12 +1,12 @@
 import os
 import random
-from mision import Mision
+
 
 class Archivo():
  
     @staticmethod
     def nombre_archivo(nombre_mision):
-        Lista_misiones = ["-ORBONE", "-CLNM", "-GALAXONE", "-UKN"]
+        Lista_misiones = ["-ORBONE", "-CLNM", "-GALAXONE","-TMRS", "-UKN"]
         nombre_archivo = "APL"
 
         if nombre_mision == "OrbitOne":
@@ -19,18 +19,22 @@ class Archivo():
             nombre_archivo += mision_elegida
             nombre_archivo += "-" +"0000"+ str(random.randint(1, 1000)) + ".log"
             return nombre_archivo
-        elif nombre_mision == "VacMars":
+        elif nombre_mision == "GalaxyTwo":
             mision_elegida = Lista_misiones[2]
             nombre_archivo += mision_elegida
             nombre_archivo += "-" +"0000"+ str(random.randint(1, 1000)) + ".log"
             return nombre_archivo
-        elif nombre_mision == "GalaxyTwo":
+        elif nombre_mision == "VacMars":
             mision_elegida = Lista_misiones[3]
             nombre_archivo += mision_elegida
             nombre_archivo += "-" +"0000"+ str(random.randint(1, 1000)) + ".log"
             return nombre_archivo
-        else:
-            return "Error"
+        elif nombre_mision == "Unknown":
+            mision_elegida = Lista_misiones[4]
+            nombre_archivo += mision_elegida
+            nombre_archivo += "-" +"0000"+ str(random.randint(1, 1000)) + ".log"
+            return nombre_archivo
+
     
     @staticmethod
     def crear_archivo(nombrearchivo):
@@ -48,7 +52,7 @@ class Archivo():
         
     @staticmethod
     def Escribir_Archivo(ruta_archivo, texto):
-        with open(ruta_archivo, 'a') as archivo:
+        with open(ruta_archivo, 'a', encoding='utf-8') as archivo:
             archivo.write(texto)
             print("se escribio: ",texto)
 

@@ -18,9 +18,12 @@ class App:
             args = parser.parse_args()
 
             # Mnu opcion
-            while True:
-                rango_menor: int = 1
-                rango_mayor: int = 100
+            rango_menor: int = 1
+            rango_mayor: int = 100
+
+            ejecutar_programa=True
+            while ejecutar_programa:
+
                 opciones_menu = input('''Presione:
                                       (Se sugiere antes de eliminar, mostrar dispositivos)
                                     1. Iniciar Simulacion
@@ -39,11 +42,13 @@ class App:
                     continue
 
                 if opcion_seleccionada == 1:
-                    
+
                     # Distribuir y ejecutar el proceso seleccionado
                     app = Simulacion_run()
-                    app.run(args.time, rango_menor,rango_mayor)
-                    
+                    app.run(args.time, rango_menor, rango_mayor)
+                   
+                    ejecutar_programa= False
+                          
                 elif opcion_seleccionada == 2:
                     Nuevo_Dispositivo=input("Escriba el nombre del nuevo Dispositivo: ")      
                     Tipo.agregar_dispositivo(Nuevo_Dispositivo)
@@ -54,7 +59,7 @@ class App:
                     Posicion_Dispositivo_Eliminar=int(input("Escriba La posicion del dispositivo que que deseas eliminar:"))      
                     confrimar_eliminacion=int(input("""
                                                         Presione 1 si esta seguro de que desea eliminar.
-                                                        Presione 2 si desea cancelar:"""))
+                                                        Presione 2 si desea cancelar: """))
                     
                     if confrimar_eliminacion==1:
                        
@@ -69,11 +74,12 @@ class App:
                 elif opcion_seleccionada == 4:
                          
                     Tipo.mostrar_dispositivos()
-                     
+                    
 
                 elif opcion_seleccionada == 5:
-                    rango_menor=int(input("Elija el rango Minimo"))
-                    rango_mayor=int(input("Elija rango Maximo"))
+                    rango_menor=int(input("Elija el rango Minimo: "))
+                    rango_mayor=int(input("Elija rango Maximo: "))
+                    
                 elif opcion_seleccionada==6:
                     break
                 else:
