@@ -1,5 +1,10 @@
+# pylint: skip-file
+from Clases.mision import Mision
 import os
-import random
+import random 
+from shutil import copy
+from datetime import datetime
+
 
 
 class Archivo():
@@ -40,7 +45,8 @@ class Archivo():
         ruta_archivo = os.path.join('Apolo-11', 'Devices', nombrearchivo)
 
         while os.path.exists(ruta_archivo):
-            nombrearchivo = Archivo.nombre_archivo()
+            nombre_mision = Mision.generar_nombre_aleatorio()
+            nombrearchivo = Archivo.nombre_archivo(nombre_mision)
             ruta_archivo = os.path.join('Apolo-11', 'Devices', nombrearchivo)
 
         with open(ruta_archivo, 'w') as archivo:
@@ -53,3 +59,23 @@ class Archivo():
         with open(ruta_archivo, 'a', encoding='utf-8') as archivo:
             archivo.write(texto)
             print("se escribio: ", texto)
+    @staticmethod
+    def realizar_backup():
+
+            fecha_hora_actual = datetime.now().strftime("%d-%m-%Y-%#H_%M%S")
+
+
+            ruta_devices = os.path.join('Apolo-11', 'Devices')
+            archivos_en_devices = os.listdir(ruta_devices)
+            print(archivos_en_devices)
+
+            nombre_carpeta_backup = os.path.join('Apolo-11', 'Backup', fecha_hora_actual)
+            os.makedirs(nombre_carpeta_backup, exist_ok=True)
+
+            for archivo in archivos_en_devices:
+                ruta_origen = os.path.join(ruta_devices, archivo)
+                ruta_destino = os.path.join(nombre_carpeta_backup, archivo)
+                
+                copy(ruta_origen, ruta_destino)
+                
+                os.remove(ruta_origen)

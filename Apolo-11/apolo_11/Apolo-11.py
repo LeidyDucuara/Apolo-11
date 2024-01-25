@@ -1,8 +1,9 @@
 # pylint: skip-file
 import argparse
-from Simulacion import Simulacion_run
+from  Simulacion import Simulacion_run
 import logging
-from Clases.dispositivo import Dispositivo, Tipo, EstadoEnum
+from Clases.dispositivo import Tipo
+
 #from apolo_11.Clases.archivo import Archivo
 
 #from apolo_11.Clases.mision import Mision

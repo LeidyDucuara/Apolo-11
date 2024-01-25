@@ -2,11 +2,10 @@
 import logging
 import time
 import random
-#from keyboard
+import keyboard as kb
 from Clases.mision import Mision
 from Clases.archivo import Archivo
 from Clases.dispositivo import Dispositivo, Tipo
-from Clases.mision import Mision
 from datetime import datetime
 
 
@@ -63,7 +62,9 @@ class Simulacion_run():
             nombre_mision = Mision.generar_nombre_aleatorio()  
             texto = llenado_archivo(nombre_mision)
             crear_y_llenar_archivo(texto)
+        
+        Archivo.realizar_backup()
 
-    
+
 
  
