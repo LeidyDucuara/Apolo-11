@@ -3,6 +3,7 @@ import argparse
 from  Simulacion import Simulacion_run
 import logging
 from Clases.dispositivo import Tipo
+import keyboard as kb
 
 #from apolo_11.Clases.archivo import Archivo
 
@@ -26,6 +27,7 @@ class App:
 
             ejecutar_programa=True
             while ejecutar_programa:
+
 
                 opciones_menu = input('''Presione:
                                       (Se sugiere antes de eliminar, mostrar dispositivos)

@@ -7,17 +7,7 @@ from Clases.mision import Mision
 from Clases.archivo import Archivo
 from Clases.dispositivo import Dispositivo, Tipo
 from datetime import datetime
-
-
-
-
-
-# ejemplos de registro de mensajes
-#logging.debug('este es un mensaje de debug')         # 10 logging.INFO
-#logging.info('esto es un mensaje de información')    # 20
-#logging.warning('¡cuidado! Esto es una advertencia') # 30 logging.WARNING
-#logging.error('ha ocurrido un error')                # 40 logging.ERROR
-#logging.critical('este es un error crítico')         # 50
+import hashlib
 
 class Simulacion_run():
     intervalo: int = 20
@@ -31,7 +21,8 @@ class Simulacion_run():
         logging.info(f"El rango menor es: {rango_menor}")
         logging.info(f"El rango Mayor es: {rango_mayor}")
         for _ in range(random.randint(rango_menor, rango_mayor)):
-            #time.sleep(self.intervalo)
+            time.sleep(self.intervalo)
+
             def llenado_archivo(nombre_mision):
                 tipo = Tipo.elegir_dispositivo()
                 dispositivo_creado = Dispositivo(tipo)
@@ -42,14 +33,16 @@ class Simulacion_run():
                 if nombre_mision == "Unknown":
                     device_status = "Unknown"
                     device_type = "Unknown"
-                    Hash = "No se todavía"
+                    hash = "No aplica"
                 else:
                     mision_nombre = nombre_mision
                     device_status = dispositivo_creado.estado.value
                     device_type = dispositivo_creado.tipo
-                    Hash = "No se todavía"
+                    hash_input = f"{mision_nombre}{device_type}{device_status}"
+                    hash=hashlib.sha256(hash_input.encode()).hexdigest()
 
-                return f"Fecha: {fecha_formateada}\nMision: {nombre_mision}\nTipo de dispositivo: {device_type}\nEstado del dispositivo: {device_status}\nHash: {Hash}"
+
+                return f"Fecha: {fecha_formateada}\nMision: {nombre_mision}\nTipo de dispositivo: {device_type}\nEstado del dispositivo: {device_status}\nHash: {hash}"
 
 
 

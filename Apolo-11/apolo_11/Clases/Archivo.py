@@ -67,7 +67,7 @@ class Archivo():
 
             ruta_devices = os.path.join('Apolo-11', 'Devices')
             archivos_en_devices = os.listdir(ruta_devices)
-            print(archivos_en_devices)
+           
 
             nombre_carpeta_backup = os.path.join('Apolo-11', 'Backup', fecha_hora_actual)
             os.makedirs(nombre_carpeta_backup, exist_ok=True)
