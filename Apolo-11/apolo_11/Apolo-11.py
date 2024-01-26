@@ -97,3 +97,4 @@ class App:
         
         except Exception as ex:
             logging.info(f"Error generado: {ex}")
+            

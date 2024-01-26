@@ -2,6 +2,7 @@ import random
 from pydantic import BaseModel
 from enum import Enum
 
+
 class EstadoEnum(str, Enum):
     excellent = "excellent"
     good = "good"
@@ -9,6 +10,7 @@ class EstadoEnum(str, Enum):
     faulty = "faulty"
     killed = "killed"
     unknown = "unknown"
+
 
 class Dispositivo(BaseModel):
     tipo: str
@@ -18,8 +20,8 @@ class Dispositivo(BaseModel):
         super().__init__(tipo=tipo, estado=random.choice(list(EstadoEnum)))
 
 
-class Tipo:
-    
+class Tipo:  
+
     dispositivos = ["Satelite", "Nave", "Traje", "Vehiculo espacial"]
 
     @staticmethod
@@ -39,6 +41,8 @@ class Tipo:
         print("Los dispositivos son:")
         for n, dispositivo in enumerate(Tipo.dispositivos):
             print(f"{n}-{dispositivo}")
+
     @staticmethod
     def elegir_dispositivo():
         return random.choice(list(Tipo.dispositivos))
+

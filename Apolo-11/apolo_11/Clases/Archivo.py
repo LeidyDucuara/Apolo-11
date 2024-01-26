@@ -1,13 +1,12 @@
 # pylint: skip-file
 from Clases.mision import Mision
 import os
-import random 
+import random
 from shutil import copy
 from datetime import datetime
 
 
-
-class Archivo():
+class Archivo:
 
     @staticmethod
     def nombre_archivo(nombre_mision):
@@ -42,14 +41,15 @@ class Archivo():
 
     @staticmethod
     def crear_archivo(nombrearchivo):
-        ruta_archivo = os.path.join('Apolo-11', 'Devices', nombrearchivo)
+        os.makedirs('Devices', exist_ok=True)
+        ruta_archivo = os.path.join('Devices', nombrearchivo)
 
         while os.path.exists(ruta_archivo):
             nombre_mision = Mision.generar_nombre_aleatorio()
             nombrearchivo = Archivo.nombre_archivo(nombre_mision)
-            ruta_archivo = os.path.join('Apolo-11', 'Devices', nombrearchivo)
+            ruta_archivo = os.path.join('Devices', nombrearchivo)
 
-        with open(ruta_archivo, 'w') as archivo:
+        with open(ruta_archivo, 'w'):
             pass
         print(f"Nombre del archivo creado: {nombrearchivo}")
         return ruta_archivo
@@ -59,23 +59,21 @@ class Archivo():
         with open(ruta_archivo, 'a', encoding='utf-8') as archivo:
             archivo.write(texto)
             print("se escribio: ", texto)
+
     @staticmethod
     def realizar_backup():
+        fecha_hora_actual = datetime.now().strftime("%d-%m-%Y-%#H_%M%S")
 
-            fecha_hora_actual = datetime.now().strftime("%d-%m-%Y-%#H_%M%S")
+        ruta_devices = os.path.join('Devices')
+        archivos_en_devices = os.listdir(ruta_devices)
 
+        nombre_carpeta_backup = os.path.join('Backup', fecha_hora_actual)
+        os.makedirs(nombre_carpeta_backup, exist_ok=True)
 
-            ruta_devices = os.path.join('Apolo-11', 'Devices')
-            archivos_en_devices = os.listdir(ruta_devices)
-           
+        for archivo in archivos_en_devices:
+            ruta_origen = os.path.join(ruta_devices, archivo)
+            ruta_destino = os.path.join(nombre_carpeta_backup, archivo)
 
-            nombre_carpeta_backup = os.path.join('Apolo-11', 'Backup', fecha_hora_actual)
-            os.makedirs(nombre_carpeta_backup, exist_ok=True)
+            copy(ruta_origen, ruta_destino)
 
-            for archivo in archivos_en_devices:
-                ruta_origen = os.path.join(ruta_devices, archivo)
-                ruta_destino = os.path.join(nombre_carpeta_backup, archivo)
-                
-                copy(ruta_origen, ruta_destino)
-                
-                os.remove(ruta_origen)
+            os.remove(ruta_origen)
