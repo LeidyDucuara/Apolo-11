@@ -20,7 +20,7 @@ class Dispositivo(BaseModel):
         super().__init__(tipo=tipo, estado=random.choice(list(EstadoEnum)))
 
 
-class Tipo:  
+class Tipo:
 
     dispositivos = ["Satelite", "Nave", "Traje", "Vehiculo espacial"]
 
@@ -45,4 +45,3 @@ class Tipo:
     @staticmethod
     def elegir_dispositivo():
         return random.choice(list(Tipo.dispositivos))
-

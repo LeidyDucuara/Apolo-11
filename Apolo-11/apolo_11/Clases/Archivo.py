@@ -4,6 +4,7 @@ import os
 import random
 from shutil import copy
 from datetime import datetime
+import json
 
 
 class Archivo:
@@ -56,14 +57,14 @@ class Archivo:
 
     @staticmethod
     def Escribir_Archivo(ruta_archivo, texto):
-        with open(ruta_archivo, 'a', encoding='utf-8') as archivo:
-            archivo.write(texto)
+        with open(ruta_archivo, 'w', encoding='utf-8') as archivo:
+            json.dump(texto, archivo, indent=4)
             print("se escribio: ", texto)
 
     @staticmethod
-    def realizar_backup():
+    def realizar_backup(pos):
         fecha_hora_actual = datetime.now().strftime("%d-%m-%Y-%#H_%M%S")
-
+        fecha_hora_actual += f"posicion-{pos}"
         ruta_devices = os.path.join('Devices')
         archivos_en_devices = os.listdir(ruta_devices)
 
