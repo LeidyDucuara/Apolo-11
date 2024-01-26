@@ -21,7 +21,7 @@ class Simulacion_run():
         logging.info(f"El rango menor es: {rango_menor}")
         logging.info(f"El rango Mayor es: {rango_mayor}")
         for _ in range(random.randint(rango_menor, rango_mayor)):
-            time.sleep(self.intervalo)
+            #time.sleep(self.intervalo)
 
             def llenado_archivo(nombre_mision):
                 tipo = Tipo.elegir_dispositivo()

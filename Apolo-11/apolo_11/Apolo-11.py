@@ -89,7 +89,11 @@ class App:
                     break
                 else:
                     logging.info("Opción no válida. Por favor, seleccione una opción válida.")
-        #Fin del while
+                
+                if kb.is_pressed("q"):
+                    logging.info("Presionaste Q, finalizando programa.")
+                    break
+        
         
         except Exception as ex:
             logging.info(f"Error generado: {ex}")
