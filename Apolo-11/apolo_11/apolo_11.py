@@ -78,7 +78,7 @@ class App:
                     rango_mayor = int(input("Elija rango Máximo: "))
 
                 elif opcion_seleccionada == 6:
-                    break
+                    ejecutar_programa = False
                 else:
                     logging.info("Opción no válida. Por favor, seleccione una opción válida.")
 

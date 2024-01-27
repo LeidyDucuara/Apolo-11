@@ -8,6 +8,9 @@ from apolo_11.Clases.mision import Mision
 from apolo_11.Clases.dispositivo import Dispositivo, Tipo
 
 
+
+
+
 @pytest.fixture(scope="session")
 def app(request):
 
