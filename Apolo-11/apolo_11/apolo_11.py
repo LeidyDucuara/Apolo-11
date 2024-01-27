@@ -18,6 +18,7 @@ class App:
     if __name__ == "__main__":
         try:
             # Configurar el nivel de registro
+            # (apolo-11-py3.11) PS C:\Users\Administrator\Desktop\proyecto\Apolo-11\Apolo-11>
             logging.basicConfig(level=logging.INFO)
 
             # Configurar y obtener parámetros

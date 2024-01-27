@@ -65,12 +65,11 @@ class Archivo:
             print("se escribio: ", texto)
 
     @staticmethod
-    def realizar_backup(pos):
+    def realizar_backup():
         """
         Realiza una copia de seguridad de los archivos en la carpeta 'Devices'.
         """
         fecha_hora_actual = datetime.now().strftime("%d-%m-%Y-%#H_%M%S")
-        fecha_hora_actual += f"posicion-{pos}"
         ruta_devices = os.path.join('Devices')
         archivos_en_devices = os.listdir(ruta_devices)
 
