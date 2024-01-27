@@ -39,17 +39,17 @@ class SimulacionRun:
         cantidad_de_ciclos = random.randint(rango_menor, rango_mayor)
         logging.info("Cantidad de ciclos: %s", cantidad_de_ciclos)
         for _ in range(cantidad_de_ciclos):
-            #time.sleep(self.intervalo)
+            # time.sleep(self.intervalo)
             if kb.is_pressed("k"):
                 logging.info("Tecla 'K' para salir ...")
                 self.salir_simulacion = True
                 break
-            
+
             for _ in range(cantidad_de_ciclos):
                 nombre_mision = Mision.generar_nombre_aleatorio()
                 texto = self.llenado_archivo(nombre_mision)
                 self.crear_y_llenar_archivo(texto)
-                
+
             time.sleep(2)
             Archivo.realizar_backup()
 
