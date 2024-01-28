@@ -61,7 +61,7 @@ class SimulacionRun:
         dispositivo_creado = Dispositivo(tipo)
 
         fecha_actual = datetime.now()
-        fecha_formateada = fecha_actual.strftime("%d-%m-%Y-%H:%M:%S-simulacion#")
+        fecha_formateada = fecha_actual.strftime("%d-%m-%Y-%H:%M:%S")
 
         if nombre_mision == "Unknown":
             device_status = "Unknown"
