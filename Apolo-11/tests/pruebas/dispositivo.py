@@ -1,3 +1,4 @@
+# flake8: noqa: F401, F811
 from tests.conftest import app
 def test_agregar_dispositivos(app):
     dispositivo_prueba = "dispositivo_prueba"

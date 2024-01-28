@@ -1,3 +1,4 @@
+# flake8: noqa: F401, F811
 """para definir configuración transversal que pueden ser usados 
 en las diferentes pruebas unitarias.
 
@@ -8,8 +9,6 @@ import pytest
 from apolo_11.Clases.dispositivo import Dispositivo, Tipo
 from apolo_11.Clases.mision import Mision
 from apolo_11.Clases.archivo import Archivo
-
-
 
 
 @pytest.fixture(scope="session")

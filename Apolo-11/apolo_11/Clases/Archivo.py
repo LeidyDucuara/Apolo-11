@@ -8,6 +8,7 @@ import json
 from datetime import datetime
 from shutil import copy
 
+
 class Archivo:
     """
     Esta clase proporciona funciones para trabajar con archivos relacionados con misiones.
@@ -20,7 +21,7 @@ class Archivo:
         Si no se proporciona ningún nombre de misión, se genera uno aleatorio.
         """
         lista_misiones = ["OrbitOne", "ColonyMoon", "GalaxyTwo", "VacMars", "Unknown"]
-        
+
         if nombre_mision is None:
             nombre_mision = random.choice(lista_misiones)
 
@@ -49,7 +50,7 @@ class Archivo:
         Si no se proporciona ningún nombre de archivo, se generará uno aleatorio.
         """
         os.makedirs('Devices', exist_ok=True)
-        
+
         if nombrearchivo is None:
             nombrearchivo = Archivo.nombre_archivo()
 
