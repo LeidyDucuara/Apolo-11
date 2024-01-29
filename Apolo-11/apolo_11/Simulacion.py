@@ -13,6 +13,7 @@ import keyboard as kb
 from Clases.archivo import Archivo
 from Clases.dispositivo import Dispositivo, Tipo
 from Clases.mision import Mision
+from Clases.reporte import Reporte
 
 
 class SimulacionRun:
@@ -49,7 +50,7 @@ class SimulacionRun:
                 nombre_mision = Mision.generar_nombre_aleatorio()
                 texto = self.llenado_archivo(nombre_mision)
                 self.crear_y_llenar_archivo(texto)
-
+            Reporte.Crear_reporte()
             time.sleep(2)
             Archivo.realizar_backup()
 
