@@ -6,8 +6,8 @@ import argparse
 import logging
 
 
-from Clases.dispositivo import Tipo
-from simulacion import SimulacionRun
+from Clases.Dispositivo import Tipo
+from Simulacion import SimulacionRun
 
 
 class App:

@@ -10,9 +10,9 @@ from datetime import datetime
 
 import keyboard as kb
 
-from Clases.archivo import Archivo
-from Clases.dispositivo import Dispositivo, Tipo
-from Clases.mision import Mision
+from Clases.Archivo import Archivo
+from Clases.Dispositivo import Dispositivo, Tipo
+from Clases.Mision import Mision
 from Clases.reporte import Reporte
 
 

@@ -6,9 +6,9 @@ todas las pruebas unitarias normalmente se hacen con funciones y asserts
 """
 import pytest
 # Dentro de conftest.py
-from apolo_11.Clases.dispositivo import Dispositivo, Tipo
-from apolo_11.Clases.mision import Mision
-from apolo_11.Clases.archivo import Archivo
+from apolo_11.Clases.Dispositivo import Dispositivo, Tipo
+from apolo_11.Clases.Mision import Mision
+from apolo_11.Clases.Archivo import Archivo
 
 
 @pytest.fixture(scope="session")
